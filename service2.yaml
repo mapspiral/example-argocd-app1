@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: service2
+  namespace: app2
+spec:
+  destination:
+    namespace: app2
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/mapspiral/example-argocd-app1.git
+    path: src/service2
+    targetRevision: main
+  project: project1
